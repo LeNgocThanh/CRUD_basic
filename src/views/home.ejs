@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href=""/css/styles.css""> 
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="/">Home</a>
+        <a href="/createUser">Create User</a> 
+    </div>      
+      </div class="table-container">
+      <div class="title">List User</div>   
+       
+        <table> 
+            <tr>
+                <td>Name</td>
+                <td>User</td> 
+                <td>PWD</td>
+                <td>Email</td>
+                <td>Birthday</td>
+                <td>Phone</td>
+            </tr>
+            <% for(var i=0; i<data.length; i++) {%>
+                <form action="/deleteUser" method="post">
+                <tr>  
+                <td><input type="text" hidden="true" id="id" name ="id" value="<%= data[i].id %>"></td>                 
+                <td><%=data[i].name %></td>
+                <td><%=data[i].user %></td> 
+                <td><%=data[i].pwd %></td>
+                <td><%=data[i].email %></td>
+                <td><%=data[i].birthday %></td>
+                <td><%=data[i].phone %></td>
+              <td> <a href="/updateUser/<%= data[i].id %>">Edit</a> </td> 
+              <td>     <input type="submit" value="Delete">
+              </td> 
+                </td>
+                </form>
+             <% } %>    
+        
+        </table>
+      </div>
+    </div>
+</body>
+</html>
