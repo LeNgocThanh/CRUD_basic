@@ -16,8 +16,6 @@ app.use(express.json( )); // Used to parse JSON bodies
 app.use(express.urlencoded( )); //Parse URL-encoded bodies
 const port = process.env.PORT || 3000
 const hostname = process.env.HOST_NAME || 'localhost'
-/* app.set('views', __dirname + '/src/views/')
-app.set('view engine', 'ejs') */
 
 configViewEngine(app); // Add this line
 app.use('/', routes)  ;
