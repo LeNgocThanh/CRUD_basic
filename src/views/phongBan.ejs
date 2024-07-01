@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href=""/css/styles.css""> 
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="/">Home</a>
+        <a href="/createPhongBan">CreatePhongBan</a> 
+    </div>      
+      </div class="table-container">
+      <div class="title">List Phong ban</div>   
+      <style>
+        table, th, td {
+          border: 1px solid black;
+        }
+      </style> 
+        <table width = "80%""> 
+            <tr>
+                <td></td>
+                <td width = "30%">Phong</td>
+                <td width = "30%">Ban</td>  
+                <td width = "18%">Edit</td>  
+                <td width = "18%">Delete</td>             
+            </tr>
+            <% for(var i=0; i<data.length; i++) {%>
+                <form action="/deletePhongBan" method="post">
+                <tr>  
+                <td><input type="text" hidden="true" id="id" name ="id" value="<%= data[i].id %>"></td>                 
+                <td width = "30%"><%=data[i].phong %></td>
+                <td width = "30%"><%=data[i].ban %></td>                 
+              <td width = "18%"> <a href="/updatePhongBan/<%= data[i].id %>">Edit</a> </td> 
+              <td width = "18%">     <input type="submit" value="Delete">
+              </td> 
+                </td>
+                </tr>
+                </form>
+             <% } %>    
+        
+        </table>
+      </div>
+    </div>
+</body>
+</html>

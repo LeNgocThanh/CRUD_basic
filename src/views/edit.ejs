@@ -7,8 +7,7 @@
 </head>
 <body>
     <div class="topnav">
-        <a class="active" href="/">Home</a>
-        <a href="#news">News</a>      
+        <a class="active" href="/">Home</a>         
       </div>
       <div class="form">
         <form action="/updateUser" method="post"> <!-- action="/create-user" method="post" -->
@@ -29,6 +28,10 @@
     <input type="date" id="birthday" name="birthday" value="<%=data.birthday %>"><br><br>
     <label for="phone">Phone:</label>
     <input type="text" id="phone" name="phone" value="<%=data.phone %>"><br><br>
+    <label for="birthday">Phong:</label>
+    <input type="text" id="phong" name="phong" value="<%=data.phong %>"><br><br>
+    <label for="phone">Ban:</label>
+    <input type="text" id="ban" name="ban" value="<%=data.ban %>"><br><br>
     <input type="text" id="id" name="id" value="<%=data.id %>" hidden="true"> </input> <br><br> 
     <input type="submit" value="Submit">
         </fieldset>

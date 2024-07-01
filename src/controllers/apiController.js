@@ -17,6 +17,8 @@ const getHomeAPI = async (req, res) => {
     let phone = req.body.phone;
     let name = req.body.name;
     let birthday = req.body.birthday;
+    let phong = req.body.phong;
+    let ban = req.body.ban;
     console.log(req.body);
     let userData = await User.insertMany({
       user : user,
@@ -24,7 +26,9 @@ const getHomeAPI = async (req, res) => {
       pwd : pwd,
       phone : phone, 
       name : name, 
-      birthday: birthday              
+      birthday: birthday,
+      phong: phong,
+      ban: ban            
       });
     //  console.log('Post create user');
   //  res.send('User created successfully!');
@@ -40,6 +44,8 @@ const getHomeAPI = async (req, res) => {
     let name = req.body.name;
     let birthday = req.body.birthday;
     let id = req.body.id;
+    let phong = req.body.phong;
+    let ban = req.body.ban;
     //console.log(req.body);
     let userData = await User.updateOne({_id: id},{
         user : user,
@@ -47,7 +53,9 @@ const getHomeAPI = async (req, res) => {
         pwd : pwd,
         phone : phone, 
         name : name, 
-        birthday: birthday              
+        birthday: birthday,
+        phong: phong,
+        ban: ban
     }).catch(err => {
         console.log(err);
     });

@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href=""/css/styles.css""> 
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="/">Home</a>
+        <a class="active" href="/phongban">PhongBan</a>
+        <a class="active" href="/createUser">CreateUser</a>      
+      </div>
+      <div class="form">
+        <form action="/createPhongBan" method="post"> <!-- action="/create-user" method="post" -->
+        <fieldset>
+            <legend>
+                Form add new users
+            </legend>           
+            <label for="phong">Phong:</label>
+    <input type="text" id="phong" name="phong"><br><br>
+    <label for="user">Ban:</label>
+    <input type="text" id="ban" name="ban"><br><br>   
+    <input type="submit" value="Submit">
+        </fieldset>
+        </form>
+      </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href=""/css/styles.css""> 
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="/">Home</a>
+        <a href="/phongban">PhongBan</a>      
+      </div>
+      <div class="form">
+        <form action="/updatePhongBan" method="post"> <!-- action="/create-user" method="post" -->
+        <input>
+            <legend>
+                Form Edit Phong Ban
+            </legend>    
+         
+    <label for="name">Phong:</label>
+    <input type="text" id="phong" name="phong" value="<%=data.phong %>"> </input> <br><br>
+    <label for="user">Ban:</label>
+    <input type="text" id="user" name="ban" value="<%=data.ban %>"><br><br>    
+    <input type="text" id="id" name="id" value="<%=data.id %>" hidden="true"> </input> <br><br> 
+    <input type="submit" value="Submit">
+        </fieldset>
+        </form>
+      </div>
+</body>
+</html>

@@ -2,6 +2,7 @@ const User = require('../models/user');
 const mongoose = require('mongoose');
 const connection = require('../config/database');
 const express = require('express');
+const PhongBan = require('../models/phongBan');
 
 const getHomePage = async (req, res) => {   
   let results = await User.find({});
@@ -9,8 +10,9 @@ const getHomePage = async (req, res) => {
 //  console.log(results);
   return res.render('home.ejs', { data : results }); // Pass 'data' as a property to the 'res.render()' method
 };
-  const getCreatePage = (req, res) => {
-    res.render('create.ejs');
+  const getCreatePage = async (req, res) => {
+    let results = await PhongBan.find({});
+    res.render('create.ejs', {data : results});
   }
   const getUpdatePage = async (req, res) => {   
     let results = await User.findById(req.params.id);
@@ -29,17 +31,28 @@ const getHomePage = async (req, res) => {
     let phone = req.body.phone;
     let name = req.body.name;
     let birthday = req.body.birthday;
-    console.log(req.body);
-    await User.insertMany({
-      user : user,
-      email : email, 
-      pwd : pwd,
-      phone : phone, 
-      name : name, 
-      birthday: birthday              
-      });
-      console.log('Post create user');
-    res.send('User created successfully!');
+    let phong = req.body.phong;
+    let ban = req.body.ban;
+    let phongBanExit = await PhongBan.find({});
+    for(let i = 0; i < phongBanExit.length; i++){
+      if(phongBanExit[i].phong == phong && phongBanExit[i].ban == ban){
+        await User.insertMany({
+          user : user,
+          email : email, 
+          pwd : pwd,
+          phone : phone, 
+          name : name, 
+          birthday: birthday, 
+          phong: phong,
+          ban: ban              
+          });
+          console.log('Post create user');
+        return res.send('User created successfully!');
+      }
+    }      
+    return res.status(400).json({
+      message: 'Phong Ban not exists'
+    });
   }
   const postUpdateUser = async (req, res) => {
     let id = req.body.id;
@@ -49,6 +62,8 @@ const getHomePage = async (req, res) => {
     let phone = req.body.phone;
     let name = req.body.name;
     let birthday = req.body.birthday;
+    let phong = req.body.phong;
+    let ban= req.body.ban;
     console.log(req.body);
     await User.findByIdAndUpdate(id, {
       user : user,
@@ -56,7 +71,9 @@ const getHomePage = async (req, res) => {
       pwd : pwd,
       phone : phone, 
       name : name, 
-      birthday: birthday              
+      birthday: birthday,
+      phong: phong,
+      ban: ban              
       });
       console.log('Post create user');
     res.send('User created successfully!');

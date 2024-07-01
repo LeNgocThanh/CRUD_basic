@@ -7,8 +7,8 @@
 </head>
 <body>
     <div class="topnav">
-        <a class="active" href="/">Home</a>
-        <a href="#news">News</a>      
+        <a class="active" href="/">Home</a>   
+        <a class="active" href="/createPhongBan">CreatePhongBan</a>       
       </div>
       <div class="form">
         <form action="/create" method="post"> <!-- action="/create-user" method="post" -->
@@ -28,6 +28,21 @@
     <input type="date" id="birthday" name="birthday"><br><br>
     <label for="phone">Phone:</label>
     <input type="text" id="phone" name="phone"><br><br>
+    <label for="ban">Ban:</label>
+    <input type="text" id="ban" name="ban" list="listBan"><br><br>
+    <% for(var i=0; i<data.length; i++) {%>
+    <datalist id="listBan">
+        <option value="<%=data[i].ban %>"></option>        
+    </datalist>
+    <% } %>  
+    <label for="phong">Phong:</label>
+    <input type="text" id="phong" name="phong" list="listPhong">
+    <% for(var i=0; i<data.length; i++) {%>
+        <datalist id="listPhong">
+            <option value="<%=data[i].ban %>"></option>        
+        </datalist>
+        <% } %> 
+    <br><br>
     <input type="submit" value="Submit">
         </fieldset>
         </form>

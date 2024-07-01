@@ -3,42 +3,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home page</title>
-    <link rel="stylesheet" href=""/css/styles.css""> 
+    <link rel="stylesheet" href=""../public/css/styles.css""> 
 </head>
 <body>
     <div class="topnav">
-        <a class="active" href="/">Home</a>
+        <a class="active" href="/phongban">PhongBan</a>
         <a href="/createUser">Create User</a> 
     </div>      
       </div class="table-container">
       <div class="title">List User</div>   
-       
+      <style>
+        table, th, td {
+          border: 1px solid black;
+        }
+      </style>
         <table> 
             <tr>
-                <td>Name</td>
-                <td>User</td> 
-                <td>PWD</td>
-                <td>Email</td>
-                <td>Birthday</td>
-                <td>Phone</td>
+                <td></td>
+                <td width="12%">Name</td>
+                <td width="12%">User</td> 
+                <td width="12%">PWD</td>
+                <td width="12%">Email</td>
+                <td width="12%">Birthday</td>
+                <td width="12%">Phone</td>
+                <td width="12%">Phong</td>
+                <td width="12%">Ban</td>
+                <td>Action</td>
             </tr>
             <% for(var i=0; i<data.length; i++) {%>
                 <form action="/deleteUser" method="post">
                 <tr>  
-                <td><input type="text" hidden="true" id="id" name ="id" value="<%= data[i].id %>"></td>                 
-                <td><%=data[i].name %></td>
-                <td><%=data[i].user %></td> 
-                <td><%=data[i].pwd %></td>
-                <td><%=data[i].email %></td>
-                <td><%=data[i].birthday %></td>
-                <td><%=data[i].phone %></td>
-              <td> <a href="/updateUser/<%= data[i].id %>">Edit</a> </td> 
-              <td>     <input type="submit" value="Delete">
+                <td width="0%"><input type="text" hidden="true" id="id" name ="id" value="<%= data[i].id %>"></td>                 
+                <td width="12%"><%=data[i].name %></td>
+                <td width="12%"><%=data[i].user %></td> 
+                <td width="12%"><%=data[i].pwd %></td>
+                <td width="12%"><%=data[i].email %></td>
+                <td width="12%"><%=data[i].birthday %></td>
+                <td width="12%"><%=data[i].phone %></td>
+                <td width="12%"><%=data[i].phong %></td>
+                <td width="12%"><%=data[i].ban %></td>
+              <td> <a href="/updateUser/<%= data[i].id %>">Edit</a>  
+                 <input type="submit" value="Delete">
               </td> 
                 </td>
+                </tr>
                 </form>
-             <% } %>    
-        
+             <% } %>         
         </table>
       </div>
     </div>
